@@ -5361,11 +5361,39 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
-alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start(); // https://sweetalert2.github.io/ - CommonJS
+alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
+window.toastr = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js"); // https://sweetalert2.github.io/ - CommonJS
 
 window.Swal = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-window.toastr = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
-Swal.fire('Buen trabajo!', 'Haga clic en el botón!', 'success');
+
+window.onload = function (event) {
+  toastr.options = {
+    closeButton: true,
+    debug: false,
+    newestOnTop: true,
+    progressBar: true,
+    positionClass: "toast-top-right",
+    preventDuplicates: false,
+    onclick: null,
+    showDuration: "300",
+    hideDuration: "1000",
+    timeOut: "5000",
+    extendedTimeOut: "1000",
+    showEasing: "swing",
+    hideEasing: "linear",
+    showMethod: "fadeIn",
+    hideMethod: "fadeOut"
+  };
+};
+
+window.addEventListener("showToast", function (event) {
+  var _event$detail$title;
+
+  toastr[event.detail.type](event.detail.message, (_event$detail$title = event.detail.title) !== null && _event$detail$title !== void 0 ? _event$detail$title : "");
+});
+window.addEventListener("hideModal", function (event) {
+  $(event.detail.modalId).modal("hide");
+});
 
 /***/ }),
 

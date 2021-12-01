@@ -14,6 +14,8 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
     @livewireStyles
+    
+    @stack('styles')
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
@@ -58,11 +60,9 @@
         </div>
 
         <!-- Regular -->
-        <i class="fa fa-desktop fa-lg"></i>
-        
+        <i class="fa fa-desktop fa-lg"></i>        
         <!-- Solid -->
         <i class="fas fa-user"></i>
-
         <!-- Brand -->
         <i class="fab fa-dev"></i>
         
@@ -73,5 +73,7 @@
     @stack('modals')
 
     @livewireScripts
+    
+    @stack('scripts')
   </body>
 </html>
