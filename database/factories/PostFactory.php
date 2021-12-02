@@ -10,17 +10,18 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class PostFactory extends Factory
 {
   protected $model = Post::class;
-  
+
   public function definition()
   {
-    $userArr = User::pluck('id')->toArray();
+    // $userArr = User::pluck('id')->toArray();
+    $userArr = User::pluck('id')->all();
     $title   = $this->faker->sentence(3);
 
     return [
-        'title' => $title,
-        'slug' => Str::slug($title),
-        'description' => $this->faker->paragraph(),
-        'user_id' => $this->faker->randomElement($userArr),
+      'title' => $title,
+      'slug' => Str::slug($title),
+      'description' => $this->faker->paragraph(),
+      'user_id' => $this->faker->randomElement($userArr),
     ];
   }
 }

@@ -31,8 +31,8 @@ class DatabaseSeeder extends Seeder
       'password' => bcrypt('superadmin'),
     ]);
 
-    User::factory(100)->create();
+    User::factory(30)->create();
 
-    Post::factory(100)->create();
+    Post::factory(500)->create();
   }
 }
